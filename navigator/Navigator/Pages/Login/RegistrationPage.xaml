@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- ReSharper disable MarkupAttributeTypo -->
+<locked:LockedLoginPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:locked="clr-namespace:Navigator.Locked"
+             x:Class="Navigator.Pages.Login.RegistrationPage"
+             
+             Shell.TabBarIsVisible="False">
+    
+    <Grid>
+        <Label
+            Text="Регистрация"
+            HorizontalOptions="Center"
+            VerticalOptions="Center"/>
+    </Grid>
+    
+</locked:LockedLoginPage>

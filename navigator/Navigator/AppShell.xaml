@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- ReSharper disable MarkupAttributeTypo -->
+<r:TransitionShell xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:r="clr-namespace:Navigator.Renderers;assembly=Navigator"
+             xmlns:loading="clr-namespace:Navigator.Pages.Loading;assembly=Navigator"
+             xmlns:login="clr-namespace:Navigator.Pages.Login;assembly=Navigator"
+             xmlns:recommendation="clr-namespace:Navigator.Pages.Main.Recommendation;assembly=Navigator"
+             xmlns:favorites="clr-namespace:Navigator.Pages.Main.Favorites;assembly=Navigator"
+             xmlns:search="clr-namespace:Navigator.Pages.Main.Search;assembly=Navigator"
+             xmlns:profile="clr-namespace:Navigator.Pages.Main.Profile;assembly=Navigator"
+             x:Class="Navigator.AppShell"
+             
+             Shell.FlyoutBehavior="Disabled"
+             Shell.NavBarIsVisible="False"
+             
+             Shell.TitleColor="{StaticResource TextColor}"
+             Shell.BackgroundColor="{StaticResource PrimaryDark}"
+             Shell.UnselectedColor="{StaticResource PrimaryLight}"
+             
+             Shell.TabBarTitleColor="{StaticResource Accent1}"
+             Shell.TabBarBackgroundColor="{StaticResource PrimaryDark}"
+             Shell.TabBarUnselectedColor="{StaticResource PrimaryLight}"
+             
+             TabTitleEmphasizerColor="{StaticResource Accent2}">
+    
+    <Shell.Items>
+        <ShellContent
+            Route="loading"
+            ContentTemplate="{DataTemplate loading:LoadingPage}"
+            Title="Загрузка"/>
+        <ShellItem
+            Route="login"
+            Title="Логин">
+            <ShellContent
+                Route="authorization"
+                ContentTemplate="{DataTemplate login:AuthorizationPage}"
+                Title="Авторизация"/>
+            <ShellContent
+                Route="registration"
+                ContentTemplate="{DataTemplate login:RegistrationPage}"
+                Title="Регистрация"/>
+            <ShellContent
+                Route="recovery"
+                ContentTemplate="{DataTemplate login:PasswordRecoveryPage}"
+                Title="Восстановлене пароля"/>
+        </ShellItem>
+        <TabBar
+            Route="main"
+            Title="Основное">
+            <Tab
+                Route="navigator"
+                Title="Навигатор"
+                Icon="v_compass">
+                <ShellContent
+                    Route="tags"
+                    ContentTemplate="{DataTemplate recommendation:RecommendationTagsPage}"/>
+            </Tab>
+            <Tab
+                Route="favorites"
+                Title="Избранное"
+                Icon="v_star">
+                <ShellContent 
+                    Route="bookmarks"
+                    ContentTemplate="{DataTemplate favorites:BookmarksPage}"
+                    Title="Закладки"/>
+                <ShellContent 
+                    Route="events"
+                    ContentTemplate="{DataTemplate favorites:SelectedEventsPage}"
+                    Title="События"/>
+                <ShellContent 
+                    Route="organizations"
+                    ContentTemplate="{DataTemplate favorites:SelectedOrganizationsPage}"
+                    Title="Организации"/>
+            </Tab>
+            <ShellContent 
+                Route="search" 
+                ContentTemplate="{DataTemplate search:SearchPage}"
+                Title="Поиск"
+                Icon="v_glass"/>
+            <ShellContent 
+                Route="profile" 
+                ContentTemplate="{DataTemplate profile:ProfileInformationPage}"
+                Title="Профиль"
+                Icon="v_person"/>
+        </TabBar>
+    </Shell.Items>
+
+</r:TransitionShell>

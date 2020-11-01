@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Navigator.App">
+    <Application.Resources>
+        <ResourceDictionary>
+            <Color x:Key="TextColor">White</Color>
+            <Color x:Key="PrimaryLight">#616161</Color>
+            <Color x:Key="PrimaryMedium">#333333</Color>
+            <Color x:Key="PrimaryDark">#1d1d1d</Color>
+            <Color x:Key="Accent1">White</Color>
+            <Color x:Key="Accent2">#9f3560</Color>
+            <LinearGradientBrush x:Key="MainGradient" StartPoint="0,1" EndPoint="1,0">
+                <GradientStop Color="#657ddd" Offset="0"/>
+                <GradientStop Color="#bc449b" Offset="0.5"/>
+                <GradientStop Color="#e46399" Offset="0.75"/>
+                <GradientStop Color="#ed8671" Offset="0.95"/>
+                <GradientStop Color="#ed8671" Offset="1"/>
+            </LinearGradientBrush>
+            <Style TargetType="ContentPage" ApplyToDerivedTypes="True">
+                <Setter Property="BackgroundColor" Value="{StaticResource PrimaryMedium}"/>
+            </Style>
+            <Style TargetType="Label">
+                <Setter Property="TextColor" Value="{StaticResource TextColor}"/>
+            </Style>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

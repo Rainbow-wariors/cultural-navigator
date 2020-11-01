@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- ReSharper disable MarkupAttributeTypo -->
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:r="clr-namespace:Navigator.Renderers"
+             x:Class="Navigator.Pages.Login.AuthorizationPage"
+             
+             Shell.TabBarIsVisible="False">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="1.5*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="7*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.Resources>
+            <ResourceDictionary>
+                <Style TargetType="Frame">
+                    <Setter Property="CornerRadius" Value="50"/>
+                    <Setter Property="BackgroundColor" Value="{StaticResource Accent1}"/>
+                    <Setter Property="HasShadow" Value="True"/>
+                    <Setter Property="Padding" Value="0"/>
+                    <Setter Property="HasShadow" Value="True"/>
+                </Style>
+                <Style TargetType="r:FilledImage">
+                    <Setter Property="Foreground" Value="{StaticResource PrimaryDark}"/>
+                    <Setter Property="HeightRequest" Value="20"/>
+                    <Setter Property="WidthRequest" Value="20"/>
+                    <Setter Property="Margin" Value="15,15,7,15"/>
+                </Style>
+                <Style TargetType="r:BorderlessEntry">
+                    <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
+                    <Setter Property="Margin" Value="0,0,25,0"/>
+                    <Setter Property="PlaceholderColor" Value="{StaticResource PrimaryLight}"/>
+                </Style>
+            </ResourceDictionary>
+        </Grid.Resources>
+        <r:FilledImage
+            Grid.Column="1" Grid.Row="1"
+            Source="v_compass"
+            Foreground="{StaticResource Accent1}"
+            HorizontalOptions="FillAndExpand"
+            VerticalOptions="FillAndExpand"/>
+        <Label
+            Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="2"
+            Text="Ваш Культурный Навигатор"
+            VerticalOptions="Start"
+            HorizontalOptions="Center"
+            FontSize="Title"/>
+        <Frame Grid.Column="1" Grid.Row="3">
+            <StackLayout Orientation="Horizontal">
+                <r:FilledImage Source="v_email"/>
+                <r:BorderlessEntry
+                    Placeholder="Почта"
+                    Text="{Binding User}"
+                    x:Name="EmailEntry"/>
+            </StackLayout>
+        </Frame>
+        <Frame Grid.Column="1" Grid.Row="4">
+            <StackLayout Orientation="Horizontal">
+                <r:FilledImage Source="v_key"/>
+                <r:BorderlessEntry
+                    IsPassword="True"
+                    Text="{Binding Password, Mode=OneWayToSource}"
+                    Placeholder="Пароль"
+                    x:Name="PasswordEntry"
+                    ReturnCommand="{Binding LoginCommand}"/>
+            </StackLayout>
+        </Frame>
+        <Button 
+            Grid.Column="1" Grid.Row="6"
+            Text="ВОЙТИ"
+            CornerRadius="50"
+            TextColor="{StaticResource Accent1}"
+            HorizontalOptions="FillAndExpand"
+            VerticalOptions="Start"
+            BackgroundColor="{StaticResource PrimaryDark}"
+            Command="{Binding LoginCommand}"/>
+        <StackLayout
+            Grid.Column="1" Grid.Row="7"
+            VerticalOptions="Start"
+            HorizontalOptions="Center">
+            <StackLayout
+            Orientation="Horizontal"
+            Spacing="0">
+                <Label Text="Ещё нет аккаунта? " TextColor="{StaticResource PrimaryLight}"/>
+                <Label
+                    x:Name="RegisterLabel"
+                    Text="Зарегестрироваться" TextColor="{StaticResource Accent1}">
+                </Label>
+            </StackLayout>
+            <Label
+                x:Name="ForgotPasswordLabel"
+                Text="Забыли пароль?"
+                HorizontalOptions="Center"
+                TextColor="{StaticResource PrimaryLight}">
+            </Label>
+        </StackLayout>
+    </Grid>
+    
+</ContentPage>
